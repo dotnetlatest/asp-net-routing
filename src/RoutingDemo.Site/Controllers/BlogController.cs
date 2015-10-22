@@ -7,9 +7,11 @@ using System.Web.Mvc;
 namespace RoutingDemo.Site.Controllers
 {
     //Controller
+    // Using Route Prefix attribute
     [RoutePrefix("blog")]
     public class BlogController : Controller
     {
+        //Multiple Route attributes
         [Route("~/")]
         [Route("blog")]
         public ActionResult Index()
@@ -23,6 +25,7 @@ namespace RoutingDemo.Site.Controllers
             return View();
         }
 
+        //Route Constraints
         [Route("{id:int}")]
         public ActionResult Post(int id)
         {
