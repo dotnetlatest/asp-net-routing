@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "title";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Travel Section</h2>
+
+<section>
+    <article>
+        <header>
+            <p>@ViewBag.Story</p>
+
+            <ol>
+                <li>
+                    @* Named Routes *@
+
+                    @Html.RouteLink(
+                        linkText: "Aruba",
+                        routeName: "catchAll",
+                        routeValues: new {controller = "Travel", action = "Destinations"})
+                </li>
+            </ol>
+        </header>
+</article>
+</section>

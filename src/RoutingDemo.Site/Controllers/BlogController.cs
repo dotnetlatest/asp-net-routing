@@ -12,26 +12,21 @@ namespace RoutingDemo.Site.Controllers
     public class BlogController : Controller
     {
         //Multiple Route attributes
-        [Route("~/")]
-        [Route("blog")]
+        [Route("~/", Name = "Blog Home")]
+        [Route("blog", Name = "BlogHome")]
         public ActionResult Index()
         {
             return View();
         }
-        [Route("{blogtitle}")]
-        public ActionResult Post(string blogtitle)
+
+        //Route Constraints 
+        [Route("{year:int}/{month:int}/{day:int}/{blogtitle}", Name = "BlogArticle")]
+        public ActionResult Article(string blogtitle)
         {
             ViewBag.Title = blogtitle;
             return View();
         }
 
-        //Route Constraints
-        [Route("{id:int}")]
-        public ActionResult Post(int id)
-        {
-            ViewBag.Title = id;
-            return View();
-        }
         
     }
 }
